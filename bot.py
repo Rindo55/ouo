@@ -31,8 +31,8 @@ async def Bitly(bot, cmd: Message):
   opts = FirefoxOptions()
   opts.add_argument("--headless")
   browser = webdriver.Firefox(options=opts)
-  result = browser.post(api_url)
-  nyaa_text = result.text   
+  result = browser.get(api_url)
+  nyaa_text = result 
   fuktext = "`" + nyaa_text + "`"
   await cmd.reply_text(nyaa_text) 
     
