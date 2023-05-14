@@ -29,7 +29,7 @@ async def Bitly(bot, cmd: Message):
   da_url = "https://da.gd/"
   url = nai_text
   shorten_url = f"{da_url}shorten"
-  response = requests.get(shorten_url, params={"url": url})
+  response = requests.post(shorten_url, params={"url": url})
   nyaa_text = response.text.strip()   
   fuktext = "`" + nyaa_text + "`"
   await cmd.reply_text(nyaa_text) 
