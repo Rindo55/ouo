@@ -33,7 +33,6 @@ async def Bitly(bot, cmd: Message):
   browser = webdriver.Firefox(options=opts)
   result = browser.get(api_url)
   nyaa_text = result 
-  fuktext = "`" + nyaa_text + "`"
   await cmd.reply_text(nyaa_text) 
     
 async def start_bot():
