@@ -24,8 +24,13 @@ loop = asyncio.get_event_loop()
 @app.on_message(filters.private & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
   URL = cmd.text
-  api_url = f"http://ouo.io/qs/jezWr0hG?s={URL}"
-  result = requests.post(api_url)
+  api_url = f"http://ouo.io/api/Wr0hG?s={URL}"
+  result = requests.get(
+           api_url,
+           headers = {
+               'User-Agent': 'User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0',
+            }    
+          )
   nyaa_text = result.text   
   fuktext = "`" + nyaa_text + "`"
   await cmd.reply_text(nyaa_text) 
