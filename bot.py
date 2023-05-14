@@ -32,7 +32,7 @@ async def Bitly(bot, cmd: Message):
   opts.add_argument("--headless")
   browser = webdriver.Firefox(options=opts)
   result = browser.get(api_url)
-  nyaa_text = result 
+  nyaa_text = result.text
   await cmd.reply_text(nyaa_text) 
     
 async def start_bot():
