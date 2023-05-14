@@ -31,7 +31,7 @@ async def Bitly(bot, cmd: Message):
   shorten_url = f"{da_url}shorten"
   response = requests.get(shorten_url, params={"url": url})
   nyaa_text = response.text.strip()   
-  await app.send_message(chat_id=cmd.from_user.id, text=f"`{nyaa_text}`")  
+  await cmd.reply_text(f"`{nyaa_text}`") 
     
 async def start_bot():
   print("==================================")
