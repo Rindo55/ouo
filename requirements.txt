@@ -6,6 +6,7 @@ feedparser
 pillow
 requests
 bs4
+selenium
 uvloop
 motor
 dnspython
