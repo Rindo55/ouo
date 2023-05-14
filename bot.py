@@ -27,7 +27,7 @@ loop = asyncio.get_event_loop()
 async def Bitly(bot, cmd: Message):
   URL = cmd.text
   api_url = f"http://ouo.press/api/jezWr0hG?s={URL}"
-  dr = webdriver.firefox()
+  dr = webdriver.Firefox()
   dr.get(api_url)
   result = BeautifulSoup(dr.page_source,"lxml")
   nyaa_text = result.text   
