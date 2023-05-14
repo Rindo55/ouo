@@ -25,7 +25,8 @@ loop = asyncio.get_event_loop()
 async def Bitly(bot, cmd: Message):
   URL = cmd.text
   api_url = f"http://ouo.io/api/Wr0hG?s={URL}"
-  result = requests.get(
+  req = requests.Session()
+  result = req.get(
            api_url,
            headers = {
                'User-Agent': 'User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0',
