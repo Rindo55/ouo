@@ -6,6 +6,8 @@ from config import *
 from uvloop import install
 import aiohttp
 import requests
+from bs4 import BeautifulSoup
+from selenium import webdriver
 import aiofiles
 from contextlib import closing, suppress
 from pyrogram.types import Message, MessageEntity
@@ -25,7 +27,9 @@ loop = asyncio.get_event_loop()
 async def Bitly(bot, cmd: Message):
   URL = cmd.text
   api_url = f"http://ouo.press/api/jezWr0hG?s={URL}"
-  result = requests.post(api_url)
+  dr = webdriver.Chrome()
+  dr.get(api_url)
+  result = BeautifulSoup(dr.page_source,"lxml")
   nyaa_text = result.text   
   fuktext = "`" + nyaa_text + "`"
   await cmd.reply_text(nyaa_text) 
