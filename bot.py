@@ -6,9 +6,6 @@ from config import *
 from uvloop import install
 import aiohttp
 import requests
-from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver import FirefoxOptions
 import aiofiles
 from contextlib import closing, suppress
 from pyrogram.types import Message, MessageEntity
@@ -27,13 +24,15 @@ loop = asyncio.get_event_loop()
 @app.on_message(filters.private & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
   URL = cmd.text
-  api_url = f"http://ouo.press/api/jezWr0hG?s={URL}"
-  opts = FirefoxOptions()
-  opts.add_argument("--headless")
-  browser = webdriver.Firefox(options=opts)
-  result = browser.get(api_url)
-  nyaa_text = result.text
-  await cmd.reply_text(nyaa_text) 
+  api_url = f"http://ouo.io/api/jezWr0hG?s={URL}"
+  result = requests.get(api_url)
+  nai_text = result.text
+  da_url = "https://da.gd/"
+  url = nai_text
+  shorten_url = f"{da_url}shorten"
+  response = requests.get(shorten_url, params={"url": url})
+  nyaa_text = response.text.strip()   
+  await app.send_message(chat_id=cmd.from_user.id, text=f"`{nyaa_text}`")  
     
 async def start_bot():
   print("==================================")
