@@ -25,7 +25,8 @@ loop = asyncio.get_event_loop()
 async def Bitly(bot, cmd: Message):
   URL = cmd.text
   api_url = f"http://ouo.io/api/jezWr0hG?s={URL}"
-  result = requests.post(api_url).json()
+  api_urlx = api_url.json()
+  result = requests.post(api_urlx)
   nai_text = result.text
   da_url = "https://da.gd/"
   url = nai_text
