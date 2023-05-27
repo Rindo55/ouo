@@ -22,7 +22,7 @@ app.start()
 
 loop = asyncio.get_event_loop()
 
-@app.on_message(filters.private & filters.regex("http|https"))
+@app.on_message(filters.private)
 async def Bitly(bot, cmd: Message):
   URL = str(cmd.text)
   api_url = f"https://api.safone.me/weather?city=Bangalore"
