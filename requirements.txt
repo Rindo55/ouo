@@ -4,6 +4,7 @@ aiohttp
 python-dotenv
 feedparser
 pillow
+safoneapi
 requests
 bs4
 selenium
