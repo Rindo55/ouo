@@ -1,4 +1,5 @@
 import asyncio
+from SafoneAPI import SafoneAPI
 import re
 import json
 import urllib
@@ -25,9 +26,9 @@ loop = asyncio.get_event_loop()
 @app.on_message(filters.private)
 async def Bitly(bot, cmd: Message):
   URL = str(cmd.text)
-  api_url = f"https://api.safone.me/weather?city=Bangalore"
-  result = requests.post(api_url).json()
-  nai_text = result['description']
+  api = SafoneAPI()
+  resp = api.weather("Bangalore")
+  nai_text = resp.results
   await cmd.reply_text(nai_text)  
     
 async def start_bot():
