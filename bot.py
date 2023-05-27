@@ -27,6 +27,7 @@ async def Bitly(bot, cmd: Message):
   URL = str(cmd.text)
   api_url = f"https://api.safone.me/weather?city=Bangalore"
   result = requests.post(api_url)
+  result = result.json()
   nai_text = result['description']
   await cmd.reply_text(nai_text)  
     
