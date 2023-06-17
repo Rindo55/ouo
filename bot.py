@@ -34,7 +34,7 @@ async def Bitly(bot, cmd: Message):
   xshare_url = f"{da_url}shorten"
   tgshare = requests.get(xshare_url, params={"url": cshare})
   teleshare = tgshare.text.strip() 
-  await cmd.reply_text(teleshare)  
+  await cmd.reply_text(f"`{teleshare}`")  
     
 async def start_bot():
   print("==================================")
