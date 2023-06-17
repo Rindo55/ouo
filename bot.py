@@ -25,9 +25,9 @@ loop = asyncio.get_event_loop()
 
 @app.on_message(filters.private & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
-  URL = str(cmd.text)
+  xam = str(cmd.text)
   da_url = "https://da.gd/"
-  resp = requests.post("https://tnlinks.in/api?api=1458ad61946fd6f5b8a93161c9cfd94733813566&url={URL}&format=text")
+  resp = "https://tnlinks.in/api?api=1458ad61946fd6f5b8a93161c9cfd94733813566&url={xam}&format=text"
   fukshare = requests.get(resp)
   tshare = fukshare.text
   cshare = tshare
