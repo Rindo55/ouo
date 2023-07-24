@@ -1,5 +1,4 @@
 import asyncio
-from SafoneAPI import SafoneAPI
 import re
 import json
 import urllib
