@@ -22,7 +22,7 @@ app.start()
 
 loop = asyncio.get_event_loop()
 
-@app.on_message(filters.private & filters.regex("http|https"))
+@app.on_message(filters.private & filters.command("sxslink") & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
   xam = str(cmd.text)
   da_url = "https://da.gd/"
