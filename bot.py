@@ -24,7 +24,7 @@ loop = asyncio.get_event_loop()
 
 @app.on_message(filters.private & filters.command("sxs") & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
-  fx = " ".join(message.command[1:])
+  fx = " ".join(cmd.command[1:])
   xam = str(fx)
   da_url = "https://da.gd/"
   resp = f"https://sxslink.com/api?api=555d814b547a16c08f5c7cf99ae9bbe8edd34696&url={xam}&format=text"
@@ -38,7 +38,7 @@ async def Bitly(bot, cmd: Message):
 
 @app.on_message(filters.private & filters.command("tn") & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
-  fit = " ".join(message.command[1:])
+  fit = " ".join(cmd.command[1:])
   xamx = str(fit)
   da_urlx = "https://da.gd/"
   respx = f"https://tnlinks.in/api?api=1458ad61946fd6f5b8a93161c9cfd94733813566&url={xamx}&format=text"
