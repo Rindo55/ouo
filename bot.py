@@ -36,6 +36,7 @@ async def Bitly(bot, cmd: Message):
     options = webdriver.ChromeOptions() 
     options.add_argument("start-maximized")
     options.binary_location = "/usr/bin/google-chrome"
+    options.browser_executable_path = "/usr/bin/google-chrome" 
     driver = uc.Chrome(options=options)
     result = driver.get(api_url)
     nai_text = result.text
