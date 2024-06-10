@@ -34,7 +34,7 @@ async def Bitly(bot, cmd: Message):
     bok = str(cmd.text)
     api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
     driver = Driver(uc=True)
-    result = driver.get(api_url)
+    result = driver.get("https://example.com/")
     nai_text = result.read()
     
     print(nai_text)
