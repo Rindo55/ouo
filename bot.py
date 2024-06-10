@@ -12,6 +12,7 @@ from contextlib import closing, suppress
 from pyrogram.types import Message, MessageEntity
 from string import ascii_letters, ascii_uppercase, digits
 from base64 import standard_b64encode, standard_b64decode
+from ouo.api import Ouo
 app = Client(
     "bot",
     api_id=API_ID,
@@ -22,12 +23,15 @@ app.start()
 
 loop = asyncio.get_event_loop()
 
+
+
+
 @app.on_message(filters.private & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
   bok = str(cmd.text)
-  api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
-  result = requests.post(api_url)
-  nai_text = result.text
+  ouo = Ouo("jezWr0hG")
+  api_url = ouo.short(bok)
+  nai_text = api_url
   da_url = "https://da.gd/"
   url = nai_text
   shorten_url = f"{da_url}shorten"
