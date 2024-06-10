@@ -7,6 +7,8 @@ from config import *
 from uvloop import install
 import aiohttp
 import requests
+import undetected_chromedriver as uc
+from selenium import webdriver
 import cloudscraper
 import aiofiles
 from contextlib import closing, suppress
@@ -31,8 +33,11 @@ loop = asyncio.get_event_loop()
 async def Bitly(bot, cmd: Message):
     bok = str(cmd.text)
     api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
-    scraper = cloudscraper.create_scraper()
-    nai_text = scraper.get(api_url).text
+    options = webdriver.ChromeOptions() 
+    options.add_argument("start-maximized")
+    driver = uc.Chrome(options=options)
+    result = driver.get(api_url)
+    nai_text = result.text
     
     print(nai_text)
     da_url = "https://da.gd/"
