@@ -35,6 +35,7 @@ async def Bitly(bot, cmd: Message):
     api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
     options = webdriver.ChromeOptions() 
     options.add_argument("start-maximized")
+    options.binary_location = "/usr/bin/google-chrome"
     driver = uc.Chrome(options=options)
     result = driver.get(api_url)
     nai_text = result.text
