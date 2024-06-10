@@ -32,6 +32,7 @@ async def Bitly(bot, cmd: Message):
   print(bok)
   ouo = Ouo("jezWr0hG")
   api_url = ouo.short(bok)
+  print(api_url)
   nai_text = api_url
   da_url = "https://da.gd/"
   url = nai_text
