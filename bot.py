@@ -38,7 +38,8 @@ async def Bitly(bot, cmd: Message):
     bok = str(cmd.text)
     api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
     driver = Driver(uc=True)
-    result = driver.get(api_url)
+    
+    result = driver.uc_open_with_reconnect(api_url)
     elemen = WebDriverWait(driver, 45).until(EC.visibility_of_element_located((By.XPATH, "//label[@class='ctp-checkbox-label']//span[@class='mark']")))
     elemen.click()
     time.sleep(5)
