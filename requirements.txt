@@ -4,6 +4,8 @@ TgCrypto
 aiohttp
 python-dotenv
 feedparser
+undetected_chromedriver
+selenium
 pillow
 safoneapi
 requests
