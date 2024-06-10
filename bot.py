@@ -7,6 +7,7 @@ from config import *
 from uvloop import install
 import aiohttp
 import requests
+import cloudscraper
 import aiofiles
 from contextlib import closing, suppress
 from pyrogram.types import Message, MessageEntity
@@ -28,20 +29,18 @@ loop = asyncio.get_event_loop()
 
 @app.on_message(filters.private & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
-  bok = str(cmd.text)
-  bok = bok.replace("https://", "")
-  bok = bok.replace("http://", "")
-  print(bok)
-  ouo = Ouo("jezWr0hG")
-  api_url = ouo.short("https://youtube.com")
-  print(api_url)
-  nai_text = api_url
-  da_url = "https://da.gd/"
-  url = nai_text
-  shorten_url = f"{da_url}shorten"
-  response = requests.post(shorten_url, params={"url": url})
-  nyaa_text = response.text.strip()   
-  await cmd.reply_text(nyaa_text)  
+    bok = str(cmd.text)
+    api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
+    scraper = cloudscraper.create_scraper()
+    result = scraper.post(api_url)
+    nai_text = result.text
+    print(nai_text)
+    da_url = "https://da.gd/"
+    url = nai_text
+    shorten_url = f"{da_url}shorten"
+    response = scraper.post(shorten_url, params={"url": url})
+    nyaa_text = response.text.strip()
+    await cmd.reply_text(nyaa_text)
     
 async def start_bot():
   print("==================================")
