@@ -29,6 +29,8 @@ loop = asyncio.get_event_loop()
 @app.on_message(filters.private & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
   bok = str(cmd.text)
+  bok = bok.replace("https://", "")
+  bok = bok.replace("http://", "")
   print(bok)
   ouo = Ouo("jezWr0hG")
   api_url = ouo.short(bok)
