@@ -6,6 +6,7 @@ from pyrogram import Client, filters, idle
 from config import *
 from uvloop import install
 import aiohttp
+from selenium.webdriver.common.by import By
 import requests
 import undetected_chromedriver as uc
 from seleniumbase import Driver
@@ -35,6 +36,7 @@ async def Bitly(bot, cmd: Message):
     api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
     driver = Driver(uc=True)
     result = driver.get("https://example.com/")
+    print(driver.find_element(By.XPATH, "/html/body").text)
     element = driver.find_element_by_tag_name('body') 
     nai_text = element.text
     
