@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 import requests
 import undetected_chromedriver as uc
 from seleniumbase import Driver
+import time
 import cloudscraper
 import aiofiles
 from contextlib import closing, suppress
@@ -36,6 +37,10 @@ async def Bitly(bot, cmd: Message):
     api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
     driver = Driver(uc=True)
     result = driver.get(api_url)
+    time.sleep(10)
+    elemen = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "//label[@class='ctp-checkbox-label']//span[@class='mark']")))
+    elemen.click()
+    time.sleep(10)
     print(driver.find_element(By.XPATH, "/html/body").text)
     element = driver.find_element_by_tag_name('body') 
     nai_text = element.text
