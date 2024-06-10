@@ -6,6 +6,7 @@ from pyrogram import Client, filters, idle
 from config import *
 from uvloop import install
 import aiohttp
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 import requests
 import undetected_chromedriver as uc
