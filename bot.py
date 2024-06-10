@@ -40,9 +40,8 @@ async def Bitly(bot, cmd: Message):
     driver = Driver(uc=True)
     
     result = driver.uc_open_with_reconnect(api_url)
-    elemen = WebDriverWait(driver, 45).until(EC.visibility_of_element_located((By.XPATH, "//label[@class='ctp-checkbox-label']//span[@class='mark']")))
-    elemen.click()
-    time.sleep(5)
+    
+    
     print(driver.find_element(By.XPATH, "/html/body").text)
     element = driver.find_element_by_tag_name('body') 
     nai_text = element.text
