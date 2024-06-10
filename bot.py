@@ -32,8 +32,8 @@ async def Bitly(bot, cmd: Message):
     bok = str(cmd.text)
     api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
     scraper = cloudscraper.create_scraper()
-    result = scraper.head(api_url)
-    nai_text = result.text
+    nai_text = scraper.get(api_url).text
+    
     print(nai_text)
     da_url = "https://da.gd/"
     url = nai_text
