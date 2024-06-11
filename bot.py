@@ -36,12 +36,12 @@ loop = asyncio.get_event_loop()
 @app.on_message(filters.private & filters.regex("http|https"))
 async def Bitly(bot, cmd: Message):
     bok = str(cmd.text)
-    api_url = f"http://ouo.io/api/jezWr0hG?s={bok}"
+    api_url = f"http://ouo.io/qs/jezWr0hG?s={bok}"
     driver = Driver(uc=True)
     
     result = driver.uc_open_with_reconnect(api_url)
     
-    
+    print(driver.current_url)
     print(driver.find_element(By.XPATH, "/html/body").text)
     element = driver.find_element_by_tag_name('body') 
     nai_text = element.text
