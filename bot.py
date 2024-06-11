@@ -56,8 +56,8 @@ async def Bitly(bot, cmd: Message):
     
 async def start_bot():
   print("==================================")
-  print("[INFO]: AutoAnimeBot Started Bot Successfully")
-  print("==========JOIN @Latest_ongoing_airing_animes=========")
+  print("[INFO]: ouo Started Bot Successfully")
+  print("==========Visit ajax.to========")
   
   await idle()
   print("[INFO]: BOT STOPPED")
